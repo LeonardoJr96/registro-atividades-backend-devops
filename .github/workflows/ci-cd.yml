@@ -63,7 +63,7 @@ jobs:
 
       - name: Update image tag
         run: |
-          cd /registro-atividades-backend/k8s
+          cd registro-atividades-backend/k8s
           kustomize edit set image \
             leonardojr96/registro-atividades-backend=\
             leonardojr96/registro-atividades-backend:${{ needs.build-and-push.outputs.image_tag }}
