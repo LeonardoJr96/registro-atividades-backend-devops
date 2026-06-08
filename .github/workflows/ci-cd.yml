@@ -63,13 +63,14 @@ jobs:
 
       - name: Update image tag
         run: |
-          cd registro-atividades-backend/k8s
+          cd gitops/k8s
           kustomize edit set image \
             leonardojr96/registro-atividades-backend=\
             leonardojr96/registro-atividades-backend:${{ needs.build-and-push.outputs.image_tag }}
 
       - name: Commit adn push
         run: |
+          cd gitops
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
           git add .
