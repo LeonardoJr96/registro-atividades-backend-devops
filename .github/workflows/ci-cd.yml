@@ -43,8 +43,8 @@ jobs:
           context: .
           push: true
           tags: |
-            eduardosilvasc/registro-atividades-backend:latest
-            eduardosilvasc/registro-atividades-backend:${{ steps.meta.outputs.image_tag }}
+            leonardojr96/registro-atividades-backend:latest
+            leonardojr96/registro-atividades-backend:${{ steps.meta.outputs.image_tag }}
 
   update-gitops:
     needs: build-and-push
@@ -65,8 +65,8 @@ jobs:
         run: |
           cd gitops/registro-atividades-backend/k8s
           kustomize edit set image \
-            eduardosilvasc/registro-atividades-backend=\
-            eduardosilvasc/registro-atividades-backend:${{ needs.build-and-push.outputs.image_tag }}
+            leonardojr96/registro-atividades-backend=\
+            leonardojr96/registro-atividades-backend:${{ needs.build-and-push.outputs.image_tag }}
 
       - name: Commit adn push
         run: |
